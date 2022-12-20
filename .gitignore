@@ -1,1 +1,6 @@
+.vscode
 *.zip
+
+# opencv
+OpenCV
+opencv_contrib
