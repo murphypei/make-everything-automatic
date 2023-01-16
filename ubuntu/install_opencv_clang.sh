@@ -2,6 +2,9 @@
 # INSTALL OPENCV ON UBUNTU OR DEBIAN #
 ######################################
 
+set -e
+set -x 
+
 # -------------------------------------------------------------------- |
 #                       SCRIPT OPTIONS                                 |
 # ---------------------------------------------------------------------|
@@ -71,7 +74,7 @@ if [ $OPENCV_CONTRIB = 'YES' ]; then
     mv opencv_contrib OpenCV
 fi
 
-cd OpenCV && mkdir build && cd build
+cd OpenCV && rm -rf build && mkdir build && cd build
 
 if [ $OPENCV_CONTRIB = 'NO' ]; then
     cmake -DCMAKE_C_COMPILER=/usr/bin/clang \
@@ -86,8 +89,15 @@ if [ $OPENCV_CONTRIB = 'YES' ]; then
     cmake -DCMAKE_C_COMPILER=/usr/bin/clang \
         -DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
         -DCMAKE_CXX_FLAGS="-stdlib=libc++" \
-        -DWITH_QT=ON -DWITH_OPENGL=ON -DWITH_VTK=OFF -DWITH_TBB=ON -DWITH_GDAL=ON \
-        -DWITH_XINE=ON -DENABLE_PRECOMPILED_HEADERS=OFF \
+        -DWITH_QT=ON \
+        -DWITH_OPENGL=ON \
+        -DWITH_VTK=OFF \
+        -DWITH_TBB=ON \
+        -DWITH_GDAL=ON \
+        -DWITH_XINE=ON \
+        -DENABLE_PRECOMPILED_HEADERS=OFF \
+        -DCMAKE_INSTALL_PREFIX=/opt/opencv_clang \
+        -DOPENCV_GENERATE_PKGCONFIG=ON \
         -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ..
 fi
 
