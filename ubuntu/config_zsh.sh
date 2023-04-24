@@ -3,11 +3,11 @@
 set -e
 set -x
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
-git clone https://github.com/paulirish/git-open.git ~/.oh-my-zsh/custom/plugins/git-open
-apt install -y autojump
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+#git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+#git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+#git clone https://github.com/paulirish/git-open.git ~/.oh-my-zsh/custom/plugins/git-open
+sudo apt install -y autojump
 
 # set oh-my-zsh
 sed -i "s/robbyrussell/steeef/g" ~/.zshrc

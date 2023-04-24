@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-set -e
 set -x
 
 PYTHON_VERSION=3.9.9
@@ -17,13 +16,4 @@ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.$SHRC
 echo 'eval "$(pyenv init -)"' >>~/.$SHRC
 exec $SHELL
 source ~/.$SHRC
-
-pyenv install -v $PYTHON_VERSION
-
-git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-echo 'eval "$(pyenv virtualenv-init -)"' >>~/.$SHRC
-source ~/.$SHRC
-
-pyenv virtualenv $PYTHON_VERSION $VIRTUAL_ENV
-pyenv activate $VIRTUAL_ENV
 
